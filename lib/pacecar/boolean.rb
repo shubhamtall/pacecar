@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'active_support/concern'
 
 module Pacecar
@@ -9,14 +11,12 @@ module Pacecar
     end
 
     module ClassMethods
-
       def define_boolean_scopes
         boolean_column_names.each do |name|
-          scope name, -> { where(name => true) }
-          scope "not_#{name}", -> { where(name => false) }
+          scope(name, -> { where(name => true) })
+          scope("not_#{name}", -> { where(name => false) })
         end
       end
-
     end
   end
 end

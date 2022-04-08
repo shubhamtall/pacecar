@@ -1,5 +1,7 @@
-rails_versions = ['4.0.0', '4.1.0', '4.2.0']
-database_drivers = ['mysql2', 'pg', 'sqlite3']
+# frozen_string_literal: true
+
+rails_versions = ['6.1.4']
+database_drivers = %w[mysql2 pg sqlite3]
 
 rails_versions.each do |rails|
   database_drivers.each do |database|

@@ -1,9 +1,11 @@
-class Post < ActiveRecord::Base
+# frozen_string_literal: true
+
+class Post < ApplicationRecord
 
   include Pacecar
 
-  PUBLICATION_STATES = %w(Draft Submitted Rejected Accepted).freeze
-  TYPES = %w(Free Open Private Anonymous PostModern).freeze
+  PUBLICATION_STATES = %w[Draft Submitted Rejected Accepted].freeze
+  TYPES = %w[Free Open Private Anonymous PostModern].freeze
 
   belongs_to :owner, polymorphic: true
 

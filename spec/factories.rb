@@ -1,12 +1,9 @@
-FactoryGirl.define do
+# frozen_string_literal: true
 
-  sequence :age do |n|
-    n.to_i
-  end
+FactoryBot.define do
+  sequence :age, &:to_i
 
-  sequence :rating do |n|
-    n.to_f
-  end
+  sequence :rating, &:to_f
 
   factory :comment do
     association :user
@@ -22,5 +19,4 @@ FactoryGirl.define do
     age
     rating
   end
-
 end

@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'active_support/concern'
 
 module Pacecar
@@ -9,16 +11,17 @@ module Pacecar
     end
 
     module ClassMethods
-
       def define_order_scopes
         safe_column_names.each do |name|
-          scope "by_#{name}", ->(*args) {
-            direction = args.flatten.first || 'asc'
-            order("#{name} #{direction}")
-          }
+          scope(
+            "by_#{name}",
+            lambda { |*args|
+              direction = args.flatten.first || 'asc'
+              order("#{name} #{direction}")
+            }
+          )
         end
       end
-
     end
   end
 end

@@ -1,4 +1,6 @@
-class Mammal < ActiveRecord::Base
+# frozen_string_literal: true
+
+class Mammal < ApplicationRecord
 
   include Pacecar
 

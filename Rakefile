@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'bundler/setup'
 require 'bundler/gem_tasks'
 require 'appraisal'
@@ -5,7 +7,7 @@ require 'appraisal'
 require 'rspec/core/rake_task'
 RSpec::Core::RakeTask.new(:spec)
 
-task :default do |t|
+task :default do |_t|
   if ENV['BUNDLE_GEMFILE'] =~ /gemfiles/
     exec 'rake spec'
   else
@@ -13,6 +15,6 @@ task :default do |t|
   end
 end
 
-task appraise: ['appraisal:install'] do |t|
+task appraise: ['appraisal:install'] do |_t|
   exec 'rake appraisal'
 end
